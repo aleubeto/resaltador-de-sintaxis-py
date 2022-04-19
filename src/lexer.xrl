@@ -8,5 +8,6 @@ Rules.
 {N}+                : {token, {int, TokenChars}}.
 {N}+(\.){N}+        : {token, {float, TokenChars}}.
 (\").*(\")          : {token, {string, TokenChars}}.
+True|False          : {token, {boolean, TokenChars}}.
 
 Erlang code.
