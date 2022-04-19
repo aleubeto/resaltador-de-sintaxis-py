@@ -1,18 +1,5 @@
 defmodule ResaltadorDeSintaxis do
-  @moduledoc """
-  Documentation for `ResaltadorDeSintaxis`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ResaltadorDeSintaxis.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def main(args\\[]) do
+    IO.inspect(args)
   end
 end
