@@ -12,7 +12,7 @@ PERTENENCIA_E_INDENTIDAD = in|is
 ELIMINAR_VARIABLES = del
 
 Rules.
-\s\n                : skip_token.
+\s|\n               : skip_token.
 {L}+                : {token, {identificador, TokenChars}}.
 (\#).*              : {token, {comentario, TokenChars}}.
 \'\'\'[^']*\'\'\'   : {token, {comentario_largo, TokenChars}}.
