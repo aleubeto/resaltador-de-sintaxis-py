@@ -1,9 +1,9 @@
 def triangle(a,b,c):
 
-    #Comprobamos que son números
+    #Comprobamos que son numeros
     valid_input = a.isnumeric() and b.isnumeric() and c.isnumeric()
 
-    #Si tenemos un input válido
+    #Si tenemos un input valido
     if valid_input:
         a = int(a)
         b = int(b)
@@ -15,19 +15,19 @@ def triangle(a,b,c):
 
             #Identificamos que tipo de triangulo es
             if a == b and b == c and a == c:
-                return '>>> Equilatero'
+                return "Equilatero"
             elif a != b and b != c and a != c:
-                return '>>> Escaleno'
+                return "Escaleno"
             else:
-                return '>>> Isósceles'
+                return "Isosceles"
 
         else:
-            return '>>> Ingrese los lados de un triangulo válido, por favor.'
+            return "Ingrese los lados de un triangulo valido, por favor."
 
     #Caso base
-    return '>>> Ingrese números enteros positivos, por favor.'
+    return "Ingrese números enteros positivos, por favor."
 
-# Ejecución del programa principal
+# Ejecucion del programa principal
 a = input("\na = ")
 b = input("b = ")
 c = input("c = ")
