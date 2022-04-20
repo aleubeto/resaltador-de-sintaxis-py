@@ -21,5 +21,8 @@ Rules.
 (\").*(\")          : {token, {string, TokenChars}}.
 True|False          : {token, {boolean, TokenChars}}.
 [+-/%]|\*|\*\*|//   : {token, {operador, TokenChars}}.
+\(|\)               : {token, {parentesis, TokenChars}}.
+{|}                 : {token, {llaves, TokenChars}}.
+\[|\]               : {token, {corchetes, TokenChars}}.
 
 Erlang code.
