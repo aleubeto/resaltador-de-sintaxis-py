@@ -1,6 +1,15 @@
 Definitions.
 D = [0-9]
 L = [a-zA-Z]
+IMPRIMIR = print
+CONDICIONALES = if|elif|else
+OPERADORES_LOGICOS = and|or|not
+BUCLES = while|for|continue|break
+LISTAS = list|set|tuple
+FUNCIONES = def|return|lambda
+CLASES = class
+PERTENENCIA_E_INDENTIDAD = in|is
+ELIMINAR_VARIABLES = del
 
 Rules.
 \s\n                : skip_token.
