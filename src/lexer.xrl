@@ -15,8 +15,8 @@ def|return          : {token, {funcion, TokenChars}}.
 %CICLOS
 while|for           : {token, {ciclo, TokenChars}}.
 
-%CONDICIONALES
-if|elif|else        : {token, {condicionales, TokenChars}}.
+%CONDICIONAL
+if|elif|else        : {token, {condicional, TokenChars}}.
 
 % COMENTARIOS
 (\#).*              : {token, {comentario, TokenChars}}.
@@ -35,8 +35,7 @@ and|or|not|in|is    : {token, {operador_logico, TokenChars}}.
 [=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenChars}}.
 
 % PUNTUACIÓN
-,                   : {token, {coma, TokenChars}}.
-\:                  : {token, {dos_puntos, TokenChars}}.
+,|\:|\.             : {token, {puntuacion, TokenChars}}.
 \(|\)               : {token, {parentesis, TokenChars}}.
 {|}                 : {token, {llaves, TokenChars}}.
 \[|\]               : {token, {corchetes, TokenChars}}.
