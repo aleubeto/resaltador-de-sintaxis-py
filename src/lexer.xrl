@@ -6,46 +6,46 @@ L = [a-z|A-Z|\_]
 Rules.
 
 % FUNCIONES Y MÉTODOS
-print|input|type    : {token, {funcion, TokenChars}}.
-list|set|tuple      : {token, {funcion, TokenChars}}.
-lambda              : {token, {funcion, TokenChars}}.
-def|return          : {token, {funcion, TokenChars}}.
-\.[^\(]+            : {token, {metodo, TokenChars}}.
+print|input|type    : {token, {funcion, TokenLine, TokenChars}}.
+list|set|tuple      : {token, {funcion, TokenLine, TokenChars}}.
+lambda              : {token, {funcion, TokenLine, TokenChars}}.
+def|return          : {token, {funcion, TokenLine, TokenChars}}.
+\.[^\(]+            : {token, {metodo, TokenLine, TokenChars}}.
 
-%CICLOS
-while|for           : {token, {ciclo, TokenChars}}.
+% CICLOS
+while|for           : {token, {ciclo, TokenLine, TokenChars}}.
 
-%CONDICIONAL
-if|elif|else        : {token, {condicional, TokenChars}}.
+% CONDICIONAL
+if|elif|else        : {token, {condicional, TokenLine, TokenChars}}.
 
 % COMENTARIOS
-(\#).*              : {token, {comentario, TokenChars}}.
-\'\'\'[^']*\'\'\'   : {token, {comentario_largo, TokenChars}}.
+(\#).*              : {token, {comentario, TokenLine, TokenChars}}.
+\'\'\'[^']*\'\'\'   : {token, {comentario_largo, TokenLine, TokenChars}}.
 
 % DATOS
-{D}+                : {token, {int, TokenChars}}.
-{D}+(\.){D}+        : {token, {float, TokenChars}}.
-(\").*(\")          : {token, {string, TokenChars}}.
-True|False          : {token, {boolean, TokenChars}}.
+{D}+                : {token, {int, TokenLine, TokenChars}}.
+{D}+(\.){D}+        : {token, {float, TokenLine, TokenChars}}.
+(\").*(\")          : {token, {string, TokenLine, TokenChars}}.
+True|False          : {token, {boolean, TokenLine, TokenChars}}.
 
 % OPERADORES
-[<>]|==|!=          : {token, {operador_logico, TokenChars}}.
-and|or|not|in|is    : {token, {operador_logico, TokenChars}}.
-[+-/%]|\|\\*|//   : {token, {operador_aritmetico, TokenChars}}.
-[=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenChars}}.
+[<>]|==|!=          : {token, {operador_logico, TokenLine, TokenChars}}.
+and|or|not|in|is    : {token, {operador_logico, TokenLine, TokenChars}}.
+[+-/%]|\|\\*|//   : {token, {operador_aritmetico, TokenLine, TokenChars}}.
+[=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenLine, TokenChars}}.
 
 % PUNTUACIÓN
-,|\:|\.             : {token, {puntuacion, TokenChars}}.
-\(|\)               : {token, {parentesis, TokenChars}}.
-{|}                 : {token, {llaves, TokenChars}}.
-\[|\]               : {token, {corchetes, TokenChars}}.
+,|\:|\.             : {token, {puntuacion, TokenLine, TokenChars}}.
+\(|\)               : {token, {parentesis, TokenLine, TokenChars}}.
+{|}                 : {token, {llaves, TokenLine, TokenChars}}.
+\[|\]               : {token, {corchetes, TokenLine, TokenChars}}.
 
 % PALABRAS RESERVADAS
-continue|break      : {token, {palabra_reservada, TokenChars}}.
-class|del           : {token, {palabra_reservada, TokenChars}}.
+continue|break      : {token, {palabra_reservada, TokenLine, TokenChars}}.
+class|del           : {token, {palabra_reservada, TokenLine, TokenChars}}.
 
 % SINTAXIS BÁSICA
-{L}+                : {token, {identificador, TokenChars}}.
+{L}+                : {token, {identificador, TokenLine, TokenChars}}.
 \s|\n               : skip_token.
 
 Erlang code.
