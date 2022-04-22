@@ -36,5 +36,18 @@ def htmlgen(list, acc, file) do
   end
 end
 
+# Funcion ejecutable del HTML
+def execute(file,newfile) do
+  lectura = read_file(file)
+  formato = format(elem(lectura,1))
+  File.rm(newfile)
+  {:ok, archivo} = File.open(newfile, [:write])
+  IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
+  IO.binwrite(archivo, '<body><p>')
+  fin = htmlgen(formato, 1, archivo)
+  IO.binwrite(archivo, '<p/><body/>')
+  File.close(archivo)
+  fin
+end
 
 end

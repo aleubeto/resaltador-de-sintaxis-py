@@ -1,4 +1,4 @@
-*{
+body{
     background-color: black;
 }
 
@@ -23,7 +23,7 @@ span.condicional {
 span.class {
     color:wheat;
 }
-span.comment {
+span.comentario {
     color: aqua;
     font-style: italic;
 }
