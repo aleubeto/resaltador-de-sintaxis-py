@@ -1,10 +1,10 @@
 *{
-    background-color: #0055ff51;
+    background-color: black;
 }
 
 code {
     font-family: Consolas,"courier new";
-    color: #3d3a3d;
+    color: white;
     padding: 2px;
     font-size: 125%;
 }
@@ -24,7 +24,7 @@ span.class {
     color:wheat;
 }
 span.comment {
-    color: forestgreen;
+    color: aqua;
     font-style: italic;
 }
 span.int {
