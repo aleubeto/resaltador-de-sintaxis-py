@@ -1,0 +1,65 @@
+
+code {
+    font-family: Consolas,"courier new";
+    color: #3d3a3d;
+    padding: 2px;
+    font-size: 125%;
+}
+span.funcion {
+    color: SlateBlue;
+}
+span.metodo {
+    color: SteelBlue;
+}
+span.ciclo {
+    color: Blue;
+}
+span.condicional {
+    color: cadetblue;
+}
+span.class {
+    color:wheat;
+}
+span.comment {
+    color: forestgreen;
+    font-style: italic;
+}
+span.int {
+    color:rgb(77, 100, 0);
+}
+span.float {
+    color:rgb(77, 150, 0);
+}
+span.string {
+    color:rgb(77, 170, 0);
+}
+span.boolean {
+    color:rgb(77, 255, 0);
+}
+span.operador_logico {
+    color:rgb(255, 0, 47);
+}
+span.operador_aritmetico {
+    color:rgb(160, 0, 47);
+}
+span.operador_asignacion {
+    color:rgb(179, 0, 47);
+}
+span.puntuacion {
+    color: rgb(218, 31, 255);
+}
+span.parentesis {
+    color: rgb(165, 3, 198);
+}
+span.llaves {
+    color: rgb(152, 0, 173);
+}
+span.corchetes {
+    color: rgb(90, 1, 102);
+}
+span.palabra_reservada {
+    color: rgb(246, 255, 0);
+}
+span.identificador {
+    color: rgb(214, 82, 6);
+}
