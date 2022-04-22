@@ -20,7 +20,21 @@ defmodule ResaltadorDeSintaxis do
     end)
   end
 
-
+# Función que genera contenido de archivo html de forma recursiva
+def htmlgen(list, _acc, __file) when list == [] do
+  "Fin de la ejecución"
+end
+def htmlgen(list, acc, file) do
+  c = acc
+  if c == elem(hd(list),0) do
+    IO.binwrite(file, elem(hd(list), 1))
+    htmlgen(tl(list), c, file)
+  else
+    c = c + 1
+    IO.binwrite(file, "<br>")
+    htmlgen(list,c,file)
+  end
+end
 
 
 end
