@@ -26,6 +26,7 @@ if|elif|else        : {token, {condicional, TokenLine, TokenChars}}.
 {D}+                : {token, {int, TokenLine, TokenChars}}.
 {D}+(\.){D}+        : {token, {float, TokenLine, TokenChars}}.
 (\").*(\")          : {token, {string, TokenLine, TokenChars}}.
+(\').*(\')          : {token, {string, TokenLine, TokenChars}}.
 True|False          : {token, {boolean, TokenLine, TokenChars}}.
 
 % OPERADORES
@@ -39,6 +40,8 @@ and|or|not|in|is    : {token, {operador_logico, TokenLine, TokenChars}}.
 \(|\)               : {token, {parentesis, TokenLine, TokenChars}}.
 {|}                 : {token, {llaves, TokenLine, TokenChars}}.
 \[|\]               : {token, {corchetes, TokenLine, TokenChars}}.
+\s                  : {token, {espacio, TokenLine, TokenChars}}.
+\s\s\s\s            : {token, {tab, TokenLine, TokenChars}}.
 
 % PALABRAS RESERVADAS
 continue|break      : {token, {palabra_reservada, TokenLine, TokenChars}}.
@@ -46,6 +49,6 @@ class|del           : {token, {palabra_reservada, TokenLine, TokenChars}}.
 
 % SINTAXIS BÁSICA
 {L}+                : {token, {identificador, TokenLine, TokenChars}}.
-\s|\n               : skip_token.
+\n               : skip_token.
 
 Erlang code.
