@@ -41,7 +41,7 @@ and|or|not|in|is    : {token, {operador_logico, TokenLine, TokenChars}}.
 {|}                 : {token, {llaves, TokenLine, TokenChars}}.
 \[|\]               : {token, {corchetes, TokenLine, TokenChars}}.
 \s                  : {token, {espacio, TokenLine, TokenChars}}.
-\s\s\s\s            : {token, {tab, TokenLine, TokenChars}}.
+\s\s\s\s|\t         : {token, {tab, TokenLine, TokenChars}}.
 
 % PALABRAS RESERVADAS
 continue|break      : {token, {palabra_reservada, TokenLine, TokenChars}}.
@@ -49,6 +49,6 @@ class|del           : {token, {palabra_reservada, TokenLine, TokenChars}}.
 
 % SINTAXIS BÁSICA
 {L}+                : {token, {identificador, TokenLine, TokenChars}}.
-\n               : skip_token.
+\n                  : skip_token.
 
 Erlang code.
