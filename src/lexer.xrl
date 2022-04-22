@@ -1,28 +1,52 @@
 Definitions.
+
 D = [0-9]
-L = [a-zA-Z]
-IMPRIMIR = print
-CONDICIONALES = if|elif|else
-OPERADORES_LOGICOS = and|or|not
-BUCLES = while|for|continue|break
-LISTAS = list|set|tuple
-FUNCIONES = def|return|lambda
-CLASES = class
-PERTENENCIA_E_INDENTIDAD = in|is
-ELIMINAR_VARIABLES = del
+L = [a-z|A-Z|\_]
 
 Rules.
-\s|\n               : skip_token.
-{L}+                : {token, {identificador, TokenChars}}.
+
+% FUNCIONES Y MÉTODOS
+print|input|type    : {token, {funcion, TokenChars}}.
+list|set|tuple      : {token, {funcion, TokenChars}}.
+lambda              : {token, {funcion, TokenChars}}.
+def|return          : {token, {funcion, TokenChars}}.
+\.[^\(]+            : {token, {metodo, TokenChars}}.
+
+%CICLOS
+while|for           : {token, {ciclo, TokenChars}}.
+
+%CONDICIONALES
+if|elif|else        : {token, {condicionales, TokenChars}}.
+
+% COMENTARIOS
 (\#).*              : {token, {comentario, TokenChars}}.
 \'\'\'[^']*\'\'\'   : {token, {comentario_largo, TokenChars}}.
+
+% DATOS
 {D}+                : {token, {int, TokenChars}}.
 {D}+(\.){D}+        : {token, {float, TokenChars}}.
 (\").*(\")          : {token, {string, TokenChars}}.
 True|False          : {token, {boolean, TokenChars}}.
-[+-/%]|\*|\*\*|//   : {token, {operador, TokenChars}}.
+
+% OPERADORES
+[<>]|==|!=          : {token, {operador_logico, TokenChars}}.
+and|or|not|in|is    : {token, {operador_logico, TokenChars}}.
+[+-/%]|\|\\*|//   : {token, {operador_aritmetico, TokenChars}}.
+[=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenChars}}.
+
+% PUNTUACIÓN
+,                   : {token, {coma, TokenChars}}.
+\:                  : {token, {dos_puntos, TokenChars}}.
 \(|\)               : {token, {parentesis, TokenChars}}.
 {|}                 : {token, {llaves, TokenChars}}.
 \[|\]               : {token, {corchetes, TokenChars}}.
+
+% PALABRAS RESERVADAS
+continue|break      : {token, {palabra_reservada, TokenChars}}.
+class|del           : {token, {palabra_reservada, TokenChars}}.
+
+% SINTAXIS BÁSICA
+{L}+                : {token, {identificador, TokenChars}}.
+\s|\n               : skip_token.
 
 Erlang code.
