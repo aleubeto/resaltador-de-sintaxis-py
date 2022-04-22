@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
 code {
@@ -9,7 +9,7 @@ code {
     font-size: 125%;
 }
 span.funcion {
-    color: SlateBlue;
+    color: rgb(42, 243, 2);
 }
 span.metodo {
     color: SteelBlue;
@@ -37,7 +37,7 @@ span.string {
     color:rgb(77, 170, 0);
 }
 span.boolean {
-    color:rgb(77, 255, 0);
+    color:rgb(100, 255, 120);
 }
 span.operador_logico {
     color:rgb(255, 0, 47);
@@ -49,19 +49,19 @@ span.operador_asignacion {
     color:rgb(179, 0, 47);
 }
 span.puntuacion {
-    color: rgb(218, 31, 255);
+    color: rgb(255, 251, 31);
 }
 span.parentesis {
-    color: rgb(165, 3, 198);
+    color: rgb(251, 255, 0);
 }
 span.llaves {
-    color: rgb(152, 0, 173);
+    color: rgb(251, 170, 0);
 }
 span.corchetes {
-    color: rgb(90, 1, 102);
+    color: rgb(251, 0, 170);
 }
 span.palabra_reservada {
-    color: rgb(246, 255, 0);
+    color: rgb(0, 174, 255);
 }
 span.identificador {
     color: rgb(214, 82, 6);
