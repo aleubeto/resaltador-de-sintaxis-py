@@ -20,34 +20,34 @@ defmodule ResaltadorDeSintaxis do
     end)
   end
 
-# Función que genera contenido de archivo html de forma recursiva
-def htmlgen(list, _acc, __file) when list == [] do
-  "Fin de la ejecución"
-end
-def htmlgen(list, acc, file) do
-  c = acc
-  if c == elem(hd(list),0) do
-    IO.binwrite(file, elem(hd(list), 1))
-    htmlgen(tl(list), c, file)
-  else
-    c = c + 1
-    IO.binwrite(file, "<br>")
-    htmlgen(list,c,file)
+  # Función que genera contenido de archivo html de forma recursiva
+  def htmlgen(list, _acc, __file) when list == [] do
+    "Fin de la ejecución"
   end
-end
+  def htmlgen(list, acc, file) do
+    c = acc
+    if c == elem(hd(list),0) do
+      IO.binwrite(file, elem(hd(list), 1))
+      htmlgen(tl(list), c, file)
+    else
+      c = c + 1
+      IO.binwrite(file, "<br>")
+      htmlgen(list,c,file)
+    end
+  end
 
-# Funcion ejecutable del HTML
-def execute(file,newfile) do
-  lectura = read_file(file)
-  formato = format(elem(lectura,1))
-  File.rm(newfile)
-  {:ok, archivo} = File.open(newfile, [:write])
-  IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
-  IO.binwrite(archivo, '<body><p>')
-  fin = htmlgen(formato, 1, archivo)
-  IO.binwrite(archivo, '<p/><body/>')
-  File.close(archivo)
-  fin
-end
+  # Funcion ejecutable del HTML
+  def execute(file,newfile) do
+    lectura = read_file(file)
+    formato = format(elem(lectura,1))
+    File.rm(newfile)
+    {:ok, archivo} = File.open(newfile, [:write])
+    IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
+    IO.binwrite(archivo, '<body><p>')
+    fin = htmlgen(formato, 1, archivo)
+    IO.binwrite(archivo, '<p/><body/>')
+    File.close(archivo)
+    fin
+  end
 
 end
