@@ -11,8 +11,12 @@ defmodule ResaltadorDeSintaxis do
 
   # Función que genera una línea html como respuesta a un token
   def format(tokens) do
-    Enum.map(tokens, fn {line, token, tchars} ->
-      {line, "<span class=#{token}>#{tchars}</span>"}
+    Enum.map(tokens, fn {token, line, tchars} ->
+      if token == :tab do
+        {line, "&emsp;"}
+      else
+        {line, "<span class=#{token}>#{tchars}</span>"}
+      end
     end)
   end
 
