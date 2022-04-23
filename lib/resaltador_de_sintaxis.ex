@@ -1,7 +1,17 @@
 defmodule ResaltadorDeSintaxis do
 
+  # Funcion ejecutable del HTML:
+  # escript resaltador_de_sintaxis "test/prueba1.py" "index.html"
   def main(args\\[]) do
-    IO.inspect(args)
+    lectura = read_file(hd(args))
+    formato = format(elem(lectura,1))
+    File.rm(hd(tl(args)))
+    {:ok, archivo} = File.open(hd(tl(args)), [:write])
+    IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
+    IO.binwrite(archivo, '<body><p>')
+    fin = htmlgen(formato, 1, archivo)
+    IO.binwrite(archivo, '<p/><body/>')
+    File.close(archivo)
   end
 
   # Función que procesa el archivo .py
@@ -34,20 +44,6 @@ defmodule ResaltadorDeSintaxis do
       IO.binwrite(file, "<br>")
       htmlgen(list,c,file)
     end
-  end
-
-  # Funcion ejecutable del HTML
-  def execute(file,newfile) do
-    lectura = read_file(file)
-    formato = format(elem(lectura,1))
-    File.rm(newfile)
-    {:ok, archivo} = File.open(newfile, [:write])
-    IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
-    IO.binwrite(archivo, '<body><p>')
-    fin = htmlgen(formato, 1, archivo)
-    IO.binwrite(archivo, '<p/><body/>')
-    File.close(archivo)
-    fin
   end
 
 end

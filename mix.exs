@@ -11,7 +11,7 @@ defmodule ResaltadorDeSintaxis.MixProject do
       escript: escript()
     ]
   end
-  def escript do
+  defp escript do
     [main_module: ResaltadorDeSintaxis]
   end
 
