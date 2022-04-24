@@ -8,10 +8,11 @@ defmodule ResaltadorDeSintaxis do
     File.rm(hd(tl(args)))
     {:ok, archivo} = File.open(hd(tl(args)), [:write])
     IO.binwrite(archivo, '<link rel = "stylesheet" href="lib/style.css">')
-    IO.binwrite(archivo, '<body><p>')
+    IO.binwrite(archivo, '<body><div class="container"><p>')
     fin = htmlgen(formato, 1, archivo)
-    IO.binwrite(archivo, '<p/><body/>')
+    IO.binwrite(archivo, '<p/></div><body/>')
     File.close(archivo)
+    fin
   end
 
   # Función que procesa el archivo .py

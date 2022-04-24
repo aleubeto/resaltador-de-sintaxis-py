@@ -29,19 +29,19 @@ if|elif|else        : {token, {condicional, TokenLine, TokenChars}}.
 (\').*(\')          : {token, {string, TokenLine, TokenChars}}.
 True|False          : {token, {boolean, TokenLine, TokenChars}}.
 
-% OPERADORES
-[<>]|==|!=          : {token, {operador_logico, TokenLine, TokenChars}}.
-and|or|not|in|is    : {token, {operador_logico, TokenLine, TokenChars}}.
-[+-/%]|\|\\*|//   : {token, {operador_aritmetico, TokenLine, TokenChars}}.
-[=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenLine, TokenChars}}.
-
 % PUNTUACIÓN
-,|\:|\.             : {token, {puntuacion, TokenLine, TokenChars}}.
+\,|\:|\.            : {token, {puntuacion, TokenLine, TokenChars}}.
 \(|\)               : {token, {parentesis, TokenLine, TokenChars}}.
 {|}                 : {token, {llaves, TokenLine, TokenChars}}.
 \[|\]               : {token, {corchetes, TokenLine, TokenChars}}.
 \s                  : {token, {espacio, TokenLine, TokenChars}}.
 \s\s\s\s|\t         : {token, {tab, TokenLine, TokenChars}}.
+
+% OPERADORES
+[<>]|==|!=          : {token, {operador_logico, TokenLine, TokenChars}}.
+and|or|not|in|is    : {token, {operador_logico, TokenLine, TokenChars}}.
+[+-/%]|\|\\*|//   : {token, {operador_aritmetico, TokenLine, TokenChars}}.
+[=]|[+=]|[-=]|[\*=] : {token, {operador_asignacion, TokenLine, TokenChars}}.
 
 % PALABRAS RESERVADAS
 continue|break      : {token, {palabra_reservada, TokenLine, TokenChars}}.
