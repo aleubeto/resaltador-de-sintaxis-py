@@ -1,16 +1,16 @@
 defmodule ResaltadorSecuencial do
 
     # Funcion ejecutable del HTML:
-    # ResaltadorSecuencial.main(["test/prueba1.py", "index.html"])
+    # ResaltadorSecuencial.main("test/test_files")
 
-    def main() do
-        test_files = File.ls("test/test_files") |> elem(1) |> Enum.filter(&String.ends_with?(&1, ".py"))
+    def main(folder) do
+        test_files = File.ls(folder) |> elem(1) |> Enum.filter(&String.ends_with?(&1, ".py"))
         for file <- test_files do
             lectura = read_file("test/test_files/"<>file)
             formato = format(elem(lectura,1))
             File.rm(file)
             {:ok, archivo} = File.open("test/test_output/#{file}.html", [:write])
-            IO.binwrite(archivo, '<title>#{file}</title><link rel="icon" href="../../lib/css/img/python.png"')
+            IO.binwrite(archivo, '<title>#{file}</title><link rel="icon" href="../../lib/css/img/python.png">')
             IO.binwrite(archivo, '<link rel="stylesheet" href="../../lib/css/style.css">')
             IO.binwrite(archivo, '<body><div class="container"><p>')
             fin = htmlgen(formato, 1, archivo)
