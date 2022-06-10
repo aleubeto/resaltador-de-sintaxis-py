@@ -1,6 +1,6 @@
 defmodule ResaltadorConcurrente do
   # Funcion ejecutable del HTML:
-  # ResaltadorSecuencial.main("test/test_files")
+  # ResaltadorSecuencial.main("test")
 
   def main(folder) do
     test_files = ResaltadorSecuencial.list_all(folder) |> Enum.filter(&String.ends_with?(&1, ".py"))
@@ -15,9 +15,9 @@ defmodule ResaltadorConcurrente do
     lectura = read_file(py)
     formato = format(elem(lectura,1))
     File.rm(name)
-    {:ok, archivo} = File.open("test/test_output/#{name}.html", [:write])
-    IO.binwrite(archivo, '<title>#{name}</title><link rel="icon" href="../../lib/css/img/python.png">')
-    IO.binwrite(archivo, '<link rel="stylesheet" href="../../lib/css/style.css">')
+    {:ok, archivo} = File.open("test/test_output/concurrente/#{name}.html", [:write])
+    IO.binwrite(archivo, '<title>#{name}</title><link rel="icon" href="../../../lib/css/img/python.png">')
+    IO.binwrite(archivo, '<link rel="stylesheet" href="../../../lib/css/style.css">')
     IO.binwrite(archivo, '<body><div class="container"><p>')
     fin = htmlgen(formato, 1, archivo)
     IO.binwrite(archivo, '<p/></div><body/>')
